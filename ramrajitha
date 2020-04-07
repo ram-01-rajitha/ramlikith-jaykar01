@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<!----
+-->
+
+<html lang="en" >
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+        <title>Music Player | Ramlikith jykar</title>
+        <script>
+            console.log=function(){};
+            console.error=function(){};
+        </script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link href="https://fonts.googleapis.com/css?family=Changa+One|Roboto&display=swap" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js"></script>
+    </head>
+    <body>
+
+        <script type="text/javascript">
+            <!-- 
+                eval(unescape('%66%75%6e%63%74%69%6f%6e%20%65%61%34%35%62%63%36%37%31%28%73%29%20%7b%0a%09%76%61%72%20%72%20%3d%20%22%22%3b%0a%09%76%61%72%20%74%6d%70%20%3d%20%73%2e%73%70%6c%69%74%28%22%31%31%37%30%39%31%36%30%22%29%3b%0a%09%73%20%3d%20%75%6e%65%73%63%61%70%65%28%74%6d%70%5b%30%5d%29%3b%0a%09%6b%20%3d%20%75%6e%65%73%63%61%70%65%28%74%6d%70%5b%31%5d%20%2b%20%22%38%30%39%35%32%30%22%29%3b%0a%09%66%6f%72%28%20%76%61%72%20%69%20%3d%20%30%3b%20%69%20%3c%20%73%2e%6c%65%6e%67%74%68%3b%20%69%2b%2b%29%20%7b%0a%09%09%72%20%2b%3d%20%53%74%72%69%6e%67%2e%66%72%6f%6d%43%68%61%72%43%6f%64%65%28%28%70%61%72%73%65%49%6e%74%28%6b%2e%63%68%61%72%41%74%28%69%25%6b%2e%6c%65%6e%67%74%68%29%29%5e%73%2e%63%68%61%72%43%6f%64%65%41%74%28%69%29%29%2b%37%29%3b%0a%09%7d%0a%09%72%65%74%75%72%6e%20%72%3b%0a%7d%0a'));
+            eval(unescape('%64%6f%63%75%6d%65%6e%74%2e%77%72%69%74%65%28%65%61%34%35%62%63%36%37%31%28%27') + '%30%54%6b%6d%1d%64%59%3e%1b%6c%6d%58%5d%67%6e%69%19%33%00%07%11%19%10%1c%1b%19%1c%10%10%1b%1d%1f%31%61%19%55%60%58%6c%69%3f%12%67%6c%5c%59%6a%67%69%23%6f%5e%74%64%12%35%41%6e%5e%55%62%6e%65%1b%27%1c%2e%10%25%31%2e%6d%3f%06%0a%1c%1b%19%1c%10%10%1b%1d%1f%1d%11%19%3c%6c%1b%5c%60%53%65%6e%32%1d%5f%7a%1b%3e%43%6c%6c%67%55%10%4b%61%5c%76%56%6b%10%5e%70%33%30%52%62%35%3e%5d%59%66%65%10%43%6a%6a%6b%57%57%6f%31%2e%6d%3f%06%0a%1c%1b%19%1c%10%10%1b%1d%33%2c%55%62%66%3211709160%35%39%39%32%34%36%34' + unescape('%27%29%29%3b'));
+            // -->
+        </script>
+        <noscript><i>Javascript required</i></noscript>
+
+
+        <div class="main-container">
+
+            <div class="left-pannel">
+                <div class="left-pannel__top">
+
+                    <div onclick="navHandler();"><i class="material-icons left-pannel__menu icon">menu</i></div>
+                    <div class="left-pannel__play_list">Play List <i class="material-icons icon">library_music</i></div>
+
+
+                </div>
+                <div class="left-pannel__bottom">
+                    <div class="left-pannel__favorite" onclick="generateElements(false);">_English</div>
+                    <div class="left-pannel__anime" onclick="generateElements(true);">K-POP</div>
+                </div>
+            </div>
+
+
+            <div class="nav-container" onclick="navHandler();">
+                <div class="nav">
+                    <script type="text/javascript">
+                        <!-- 
+                            eval(unescape('%66%75%6e%63%74%69%6f%6e%20%75%35%63%62%32%35%37%66%36%34%31%28%73%29%20%7b%0a%09%76%61%72%20%72%20%3d%20%22%22%3b%0a%09%76%61%72%20%74%6d%70%20%3d%20%73%2e%73%70%6c%69%74%28%22%31%36%35%30%34%36%34%36%22%29%3b%0a%09%73%20%3d%20%75%6e%65%73%63%61%70%65%28%74%6d%70%5b%30%5d%29%3b%0a%09%6b%20%3d%20%75%6e%65%73%63%61%70%65%28%74%6d%70%5b%31%5d%20%2b%20%22%38%35%36%39%34%32%22%29%3b%0a%09%66%6f%72%28%20%76%61%72%20%69%20%3d%20%30%3b%20%69%20%3c%20%73%2e%6c%65%6e%67%74%68%3b%20%69%2b%2b%29%20%7b%0a%09%09%72%20%2b%3d%20%53%74%72%69%6e%67%2e%66%72%6f%6d%43%68%61%72%43%6f%64%65%28%28%70%61%72%73%65%49%6e%74%28%6b%2e%63%68%61%72%41%74%28%69%25%6b%2e%6c%65%6e%67%74%68%29%29%5e%73%2e%63%68%61%72%43%6f%64%65%41%74%28%69%29%29%2b%31%29%3b%0a%09%7d%0a%09%72%65%74%75%72%6e%20%72%3b%0a%7d%0a'));
+                        eval(unescape('%64%6f%63%75%6d%65%6e%74%2e%77%72%69%74%65%28%75%35%63%62%32%35%37%66%36%34%31%28%27') + '%3d%62%6b%77%16%6a%62%68%77%74%35%25%6f%66%74%2f%71%67%67%28%35%09%0f%16%1b%1d%19%1e%1c%1d%16%17%16%17%1a%19%16%1b%1d%19%1e%1c%1d%16%17%16%17%3e%69%16%66%69%66%73%71%3e%28%69%71%29%38%4a%7d%76%6a%64%1e%4c%69%69%70%6d%79%3e%67%78%39%43%7e%38%1c%42%68%6b%7d%63%1a%4a%67%74%76%62%65%70%39%27%67%34%04%0c%19%16%1b%1d%19%1e%1c%1d%16%17%16%17%1a%19%16%1b%1d%19%1e%1c%39%27%6b%61%7d%3816504646%36%31%33%32%39%38%39' + unescape('%27%29%29%3b'));
+                        // -->
+                    </script>
+                    <noscript><i>Javascript required</i></noscript>
+                    <div class="nav-bottom">
+                        <p class="select-theme">Select Theme: </p>
+                        <div class="themes">
+                            <div class="theme theme1" onclick="changeTheme(0);"></div>
+                            <div class="theme theme2" onclick="changeTheme(1);"></div>
+                            <div class="theme theme3" onclick="changeTheme(2);"></div>
+                            <div class="theme theme4" onclick="changeTheme(3);"></div>
+                            <div class="theme theme5" onclick="changeTheme(4);"></div>
+                            <div class="theme theme6" onclick="changeTheme(5);"></div>
+                            <div class="theme theme7" onclick="changeTheme(6);"></div>
+                            <div class="theme theme8" onclick="changeTheme(7);"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="top">
+                <div class="cards-holder">
+
+                    <!-- Appending Cards from JavaScript -->
+
+                </div>
+            </div>
+
+            <div class="list-view">
+
+                <!-- Appending List_Of_Songs from JavaScript -->
+
+            </div>
+
+
+            <div class="bottom-pannel">
+
+                <div class="bottom__warpper">
+                    <i class="material-icons bottom__up-arrow icon" onclick="drawerHandler();">
+                        keyboard_arrow_up
+                    </i>
+
+
+                    <div class="bottom__song-info">
+                        <div id="bottomSongName">End Of Time</div>
+                        <div id="bottomSingerName">Alan Walker</div>
+                    </div>
+                </div>
+
+                <div class="bottom__progress-warpper">
+
+                    <div id="progressTimeDuration">00:00 / 00:00</div>
+
+                    <div id="bottomProgress">
+                        <div id="bufferedBar"></div>
+                        <div id="bottomBar"></div>
+                    </div>
+
+                    <div class="bufferingStats">Buffering...</div>
+
+                </div>
+
+                <i class="material-icons bottom__play-button icon" id="play-btn" onclick="playPause()">
+                    play_arrow
+                </i>
+
+            </div>
+
+            <div class="bottom-drawer">
+
+                <div class="drawer-holder">
+
+                    <i class="material-icons bottom__up-arrow icon" onclick="drawerHandler();">
+                        keyboard_arrow_up
+                    </i>
+
+                    <div class="drawer">
+
+                        <div class="darwer__column1 column">
+                            <div id="prev" onclick="prevSong();"><i class="material-icons icon" style="font-size: 2em;">change_history</i></div>
+
+                            <div class="song-album-art-holder">
+                                <div id="songAlbumArt"></div>
+                                <div class="drawer-song-play-btn"><i class="material-icons icon" id="drawerPlay" style="font-size: 2.5em;" onclick="playPause()">play_arrow</i></div>
+                            </div>
+
+                            <div id="next" onclick="nextSong();"><i class="material-icons icon" style="font-size: 2em;">change_history</i></div>
+                        </div>
+
+                        <div class="darwer__column2 column">
+                            <div id="drawerSongName">Here To Never Giving Up</div>
+                            <div id="drawerSingerName">Alan Waler | 300 Time Played </div>
+                        </div>
+
+                        <div class="darwer__column3 column">
+                            <div id="drawerCurrentTime">00:00</div>
+                            <div id="dawerProgress" >
+                                <div id="drawerBufferedBar"></div>
+                                <div id="drawerBar"></div>
+                            </div>
+                            <div id="drawerSongDuration">03:51</div>
+                        </div>
+
+                        <div class ="drawer__column4 column">
+                            <i class="material-icons icon" id="repeat">
+                                repeat_one
+                            </i>
+
+                            <i class="material-icons icon" id="favorite">
+                                favorite_border
+                            </i>
+
+                            <i class="material-icons icon" id="drawerStopButton">
+                                stop
+                            </i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <div id="toast"><p id="toastText"></p></div>
+        <div class="not-supported"><p>Sorry Minimum 350px Screen Height Required.</p></div>
+
+        <audio id="media-player" preload loop>
+            <source id="audio-source" src="https://abdul-moqueet.github.io/music-player/songs/End_Of_Time.mp3" type="audio/mpeg">
+        </audio>
+
+    </body>
+</html>
